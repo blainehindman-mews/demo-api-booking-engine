@@ -1,8 +1,10 @@
 # The Cascadian — Booking Engine
 
+**Live site:** https://blainehindman-mews.github.io/demo-api-booking-engine/
+
 A custom hotel booking site for The Cascadian (Mews demo property), powered by the [Mews Distributor API](https://docs.mews.com/booking-engine).
 
-Plain HTML / CSS / JS — no build step, no dependencies.
+Plain HTML / CSS / JS — no build step, no dependencies. Hosted on GitHub Pages.
 
 ## Folder Structure
 
@@ -45,7 +47,7 @@ The widget calls two endpoints:
 
 Reserve buttons deep-link to the Mews-hosted checkout page — Mews handles payment and reservation creation from there.
 
-> **Note:** The Connector API (used in [demo-api-terminal](https://github.com/)) is PMS-side and carries real credentials — it must never be exposed in browser JS. Distributor and Connector are separate APIs.
+> **Note:** The Connector API (used in [demo-api-terminal](https://github.com/blainehindman-mews/demo-api-terminal)) is PMS-side and carries real credentials — it must never be exposed in browser JS. Distributor and Connector are separate APIs.
 
 ## Re-downloading the hero videos
 
