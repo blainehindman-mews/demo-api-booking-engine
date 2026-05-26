@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Cascadian — A Pacific Northwest Retreat</title>
+  <meta name="description" content="The Cascadian — a luxury hideaway in the heart of the Pacific Northwest. Glacier vistas, alpine forests, and the timeless calm of the Sound." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/booking.css" />
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="site-header" id="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">THE</span>
+        <span class="brand-name">CASCADIAN</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="rooms.html">Rooms &amp; Suites</a></li>
+          <li><a href="dining.html">Dining</a></li>
+          <li><a href="experiences.html">Experiences</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="#booking" class="cta-book">Reserve</a>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero-video-stage" aria-hidden="true">
+      <video class="hero-video active" autoplay muted loop playsinline preload="auto"
+             data-credit="Video by JeetsVids / Pexels"
+             src="assets/videos/hero-4-seattle-sunrise.mp4"></video>
+      <video class="hero-video" muted loop playsinline preload="auto"
+             data-credit="Video by Climate And Transit / Pexels"
+             src="assets/videos/hero-3-seattle-from-ferry.mp4"></video>
+      <video class="hero-video" muted loop playsinline preload="auto"
+             data-credit="Video by Thomas K / Pexels"
+             src="assets/videos/hero-5-diablo-lake.mp4"></video>
+      <video class="hero-video" muted loop playsinline preload="auto"
+             data-credit="Video by Dean Diemert / Pexels"
+             src="assets/videos/hero-6-mt-rainier.mp4"></video>
+      <video class="hero-video" muted loop playsinline preload="auto"
+             data-credit="Video by JeetsVids / Pexels"
+             src="assets/videos/hero-7-seattle-sailboat.mp4"></video>
+      <div class="hero-tint"></div>
+    </div>
+
+    <div class="hero-copy">
+      <p class="eyebrow">A Pacific Northwest Retreat</p>
+      <h1 class="hero-title">
+        Where mountains<br/>
+        meet the sea.
+      </h1>
+      <p class="hero-sub">
+        Tucked between glacier-fed lakes and the quiet rhythm of Puget Sound,
+        The Cascadian is a sanctuary shaped by the landscape that surrounds it.
+      </p>
+      <a href="#booking" class="hero-cta">Plan Your Stay</a>
+    </div>
+
+    <div class="hero-credit" id="hero-credit"></div>
+
+    <div class="hero-dots" aria-hidden="true">
+      <button class="dot active" data-i="0"></button>
+      <button class="dot" data-i="1"></button>
+      <button class="dot" data-i="2"></button>
+      <button class="dot" data-i="3"></button>
+      <button class="dot" data-i="4"></button>
+    </div>
+  </section>
+
+  <!-- ===================== BOOKING WIDGET ===================== -->
+  <section class="booking-section" id="booking">
+    <div class="container">
+      <div class="booking-card">
+        <p class="eyebrow center">Reserve</p>
+        <h2 class="section-title center">Begin Your Journey</h2>
+
+        <form id="booking-form" class="booking-form" autocomplete="off">
+          <div class="field">
+            <label for="arrival">Arrival</label>
+            <input type="date" id="arrival" name="arrival" required />
+          </div>
+          <div class="field">
+            <label for="departure">Departure</label>
+            <input type="date" id="departure" name="departure" required />
+          </div>
+          <div class="field">
+            <label for="adults">Adults</label>
+            <select id="adults" name="adults">
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="children">Children</label>
+            <select id="children" name="children">
+              <option value="0" selected>0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary">Check Availability</button>
+        </form>
+
+        <div id="availability-results" class="availability-results" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STORY ===================== -->
+  <section class="story">
+    <div class="container two-col">
+      <div class="col-text">
+        <p class="eyebrow">Our Story</p>
+        <h2 class="section-title">A House Built<br/>of Stone &amp; Cedar.</h2>
+        <p>
+          For more than a century, travelers have come to the Cascadian to slow
+          down. Our halls are warmed by Pacific Northwest timber; our windows
+          open to the same vistas that drew the first settlers to this corner of
+          the country.
+        </p>
+        <p>
+          From sunrise meditations beside the lake to evenings shaped by the
+          chef's seasonal table, the Cascadian invites you to step softly into
+          something older &mdash; and a little wilder &mdash; than the world you left behind.
+        </p>
+        <a href="experiences.html" class="link-arrow">Discover the Experience &rarr;</a>
+      </div>
+      <div class="col-image">
+        <div class="image-frame frame-1"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ROOMS PREVIEW ===================== -->
+  <section class="rooms-preview">
+    <div class="container">
+      <p class="eyebrow center">Accommodations</p>
+      <h2 class="section-title center">Rooms &amp; Suites</h2>
+      <p class="section-sub center">
+        Each room is anchored in the natural palette of the Cascades &mdash;
+        weathered cedar, cool granite, the soft greys of morning fog.
+      </p>
+
+      <div class="rooms-grid" id="rooms-grid">
+        <!-- Three signature categories — pulled from the real Mews inventory. -->
+        <article class="room-card">
+          <div class="room-image" style="background-image:url('https://cdn.mews-demo.com/Media/Image/dbbd5297-ca27-407a-87df-b4200133aa9d')"></div>
+          <div class="room-body">
+            <h3>Lake Side &mdash; King Room</h3>
+            <p>A king bed and uninterrupted lakeside views &mdash; the calmest room in the house.</p>
+            <a href="rooms.html" class="link-arrow">Explore &rarr;</a>
+          </div>
+        </article>
+        <article class="room-card">
+          <div class="room-image" style="background-image:url('https://cdn.mews-demo.com/Media/Image/3877921a-9c69-4304-b982-b41f011500d8')"></div>
+          <div class="room-body">
+            <h3>Lake Side &mdash; King Suite</h3>
+            <p>A spacious lakeside suite for a longer stay or a small family.</p>
+            <a href="rooms.html" class="link-arrow">Explore &rarr;</a>
+          </div>
+        </article>
+        <article class="room-card">
+          <div class="room-image" style="background-image:url('https://cdn.mews-demo.com/Media/Image/ed20877c-2d52-4e7a-87a0-b40c013f46dc')"></div>
+          <div class="room-body">
+            <h3>Mountain View &mdash; King Room</h3>
+            <p>A king bed framed by views of both the lake and the mountains beyond.</p>
+            <a href="rooms.html" class="link-arrow">Explore &rarr;</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="center" style="margin-top: 3rem;">
+        <a href="rooms.html" class="btn-secondary">View All Accommodations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCES PREVIEW ===================== -->
+  <section class="experiences-preview">
+    <div class="container">
+      <div class="exp-grid">
+        <div class="exp-tile exp-tile-1">
+          <div class="exp-overlay">
+            <p class="eyebrow light">On the Water</p>
+            <h3>Sunrise on the Sound</h3>
+            <p>A guided ferry crossing as Seattle wakes behind you.</p>
+          </div>
+        </div>
+        <div class="exp-tile exp-tile-2">
+          <div class="exp-overlay">
+            <p class="eyebrow light">In the Mountains</p>
+            <h3>Mt. Rainier Trailheads</h3>
+            <p>Step from the lobby onto trails that climb to alpine meadows.</p>
+          </div>
+        </div>
+        <div class="exp-tile exp-tile-3">
+          <div class="exp-overlay">
+            <p class="eyebrow light">At the Table</p>
+            <h3>The Chef's Garden</h3>
+            <p>Seasonal menus drawn from the orchards beyond the kitchen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer" id="contact">
+    <div class="container footer-grid">
+      <div>
+        <p class="brand-mark dark">THE</p>
+        <p class="brand-name dark">CASCADIAN</p>
+        <p class="footer-tag">A Pacific Northwest Retreat</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <p>1 Cascadian Way<br/>Seattle, Washington 98101</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>reservations@cascadian.example<br/>+1 (206) 555&ndash;0100</p>
+      </div>
+      <div>
+        <h4>Stay in Touch</h4>
+        <form class="newsletter" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed';">
+          <input type="email" placeholder="Your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-base">
+      <p>&copy; The Cascadian. All rights reserved. Booking powered by the Mews Distributor API.</p>
+      <p class="legal-small">Hero videos courtesy of JeetsVids, Climate And Transit, Thomas K, and Dean Diemert on Pexels.</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>

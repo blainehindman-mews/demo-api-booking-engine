@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dining — The Cascadian</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+  <header class="site-header scrolled" id="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">THE</span>
+        <span class="brand-name">CASCADIAN</span>
+      </a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="rooms.html">Rooms &amp; Suites</a></li>
+          <li><a href="dining.html">Dining</a></li>
+          <li><a href="experiences.html">Experiences</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="index.html#booking" class="cta-book">Reserve</a>
+    </div>
+  </header>
+
+  <section class="subhero dining">
+    <div class="container">
+      <p class="eyebrow">The Table</p>
+      <h1>A Cuisine of<br/>the Region.</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <p class="eyebrow center">From Our Kitchen</p>
+      <h2 class="section-title center">Three Houses, One Pantry</h2>
+      <p class="section-sub center">
+        Every dish at the Cascadian begins within fifty miles &mdash; foraged
+        in the forests, fished from the Sound, or grown in the orchard behind
+        the kitchen.
+      </p>
+
+      <div class="dining-grid">
+        <article class="dining-card">
+          <div class="di-img" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=80')"></div>
+          <div class="di-body">
+            <h3>The Hearth</h3>
+            <p class="di-sub">Dinner · Tasting Menu · Reservations</p>
+            <p>A nine-course exploration of the Pacific Northwest, anchored by a wood-fired hearth at the center of the dining room. The chef's menu changes weekly with the season.</p>
+          </div>
+        </article>
+
+        <article class="dining-card">
+          <div class="di-img" style="background-image:url('https://images.unsplash.com/photo-1481931098730-318b6f776db0?auto=format&fit=crop&w=1400&q=80')"></div>
+          <div class="di-body">
+            <h3>Cedar &amp; Salt</h3>
+            <p class="di-sub">Breakfast · Lunch · Casual</p>
+            <p>Our all-day room with a long copper bar and a view of the Sound. Smoked salmon at dawn, oysters at midday, and a wine list drawn from the small producers of the Yakima Valley.</p>
+          </div>
+        </article>
+
+        <article class="dining-card">
+          <div class="di-img" style="background-image:url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1400&q=80')"></div>
+          <div class="di-body">
+            <h3>The Lobby Bar</h3>
+            <p class="di-sub">Cocktails · Light Plates · Evenings</p>
+            <p>An after-hours room defined by a quiet jazz program, an extensive American whiskey selection, and a short menu of small plates from The Hearth.</p>
+          </div>
+        </article>
+
+        <article class="dining-card">
+          <div class="di-img" style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1400&q=80')"></div>
+          <div class="di-body">
+            <h3>The Orchard Table</h3>
+            <p class="di-sub">Private Dining · By Arrangement</p>
+            <p>A single long table set among the apple trees, available for parties of eight to twenty. Menus are designed in conversation with the chef and the gardener.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="brand-mark dark">THE</p>
+        <p class="brand-name dark">CASCADIAN</p>
+        <p class="footer-tag">A Pacific Northwest Retreat</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <p>1 Cascadian Way<br/>Seattle, Washington 98101</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>reservations@cascadian.example<br/>+1 (206) 555&ndash;0100</p>
+      </div>
+      <div>
+        <h4>Stay in Touch</h4>
+        <form class="newsletter" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed';">
+          <input type="email" placeholder="Your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-base">
+      <p>&copy; The Cascadian. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

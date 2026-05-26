@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experiences — The Cascadian</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+  <header class="site-header scrolled" id="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">THE</span>
+        <span class="brand-name">CASCADIAN</span>
+      </a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="rooms.html">Rooms &amp; Suites</a></li>
+          <li><a href="dining.html">Dining</a></li>
+          <li><a href="experiences.html">Experiences</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="index.html#booking" class="cta-book">Reserve</a>
+    </div>
+  </header>
+
+  <section class="subhero experiences">
+    <div class="container">
+      <p class="eyebrow">Things to Do</p>
+      <h1>A Region<br/>Worth Slowing For.</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <p class="eyebrow center">Curated by The Cascadian</p>
+      <h2 class="section-title center">Experiences</h2>
+      <p class="section-sub center">
+        From sunrise on the water to alpine evenings on the mountain, a quiet
+        list of the things we love about this corner of the country.
+      </p>
+
+      <div class="exp-list">
+        <article class="exp-item">
+          <div class="exp-img" style="background-image:url('https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=1200&q=80')"></div>
+          <div>
+            <p class="eyebrow">On the Water</p>
+            <h3>Sunrise on the Sound</h3>
+            <p>A guided ferry crossing as Seattle wakes behind you &mdash; pour-over coffee, a quiet captain, and the city skyline at first light.</p>
+          </div>
+        </article>
+
+        <article class="exp-item">
+          <div class="exp-img" style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80')"></div>
+          <div>
+            <p class="eyebrow">In the Mountains</p>
+            <h3>Mt. Rainier Trailheads</h3>
+            <p>Step from the lobby onto trails that climb to alpine meadows. Day packs, a packed lunch from Cedar &amp; Salt, and a guide if you'd like one.</p>
+          </div>
+        </article>
+
+        <article class="exp-item">
+          <div class="exp-img" style="background-image:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80')"></div>
+          <div>
+            <p class="eyebrow">At Altitude</p>
+            <h3>The Lake Lookout</h3>
+            <p>A private drive into the North Cascades National Park, ending at the lookout above the lake. Best in early morning, when the water is still glass.</p>
+          </div>
+        </article>
+
+        <article class="exp-item">
+          <div class="exp-img" style="background-image:url('https://images.unsplash.com/photo-1438565434616-3ef039228b15?auto=format&fit=crop&w=1200&q=80')"></div>
+          <div>
+            <p class="eyebrow">In the Forest</p>
+            <h3>Old Growth Walk</h3>
+            <p>A naturalist-led morning walk through the cedar grove behind the hotel &mdash; suitable for all paces. Returns to the orchard for tea.</p>
+          </div>
+        </article>
+
+        <article class="exp-item">
+          <div class="exp-img" style="background-image:url('https://images.pexels.com/photos/28701326/pexels-photo-28701326.jpeg?auto=compress&cs=tinysrgb&w=1200')"></div>
+          <div>
+            <p class="eyebrow">In the Cellar</p>
+            <h3>Wines of the Pacific Northwest</h3>
+            <p>An evening tasting led by our sommelier, walking through the small-production wines of Washington, Oregon, and British Columbia.</p>
+          </div>
+        </article>
+
+        <article class="exp-item">
+          <div class="exp-img" style="background-image:url('https://images.pexels.com/photos/35237027/pexels-photo-35237027.jpeg?auto=compress&cs=tinysrgb&w=1200')"></div>
+          <div>
+            <p class="eyebrow">By Air</p>
+            <h3>Seaplane to the San Juans</h3>
+            <p>Depart from Lake Union, land in Friday Harbor. A day of orcas, oysters, and the slow rhythm of the islands.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="brand-mark dark">THE</p>
+        <p class="brand-name dark">CASCADIAN</p>
+        <p class="footer-tag">A Pacific Northwest Retreat</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <p>1 Cascadian Way<br/>Seattle, Washington 98101</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>reservations@cascadian.example<br/>+1 (206) 555&ndash;0100</p>
+      </div>
+      <div>
+        <h4>Stay in Touch</h4>
+        <form class="newsletter" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed';">
+          <input type="email" placeholder="Your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-base">
+      <p>&copy; The Cascadian. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

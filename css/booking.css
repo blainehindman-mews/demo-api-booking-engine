@@ -1,0 +1,198 @@
+/* ============================================================
+   Booking widget — Mews Distributor surface
+   ============================================================ */
+
+.booking-section {
+  background: var(--bg);
+  padding: 0;
+  position: relative;
+  z-index: 5;
+  margin-top: -90px;     /* float card into the hero */
+}
+
+.booking-card {
+  background: #fff;
+  padding: 3.5rem 3rem;
+  max-width: 1140px;
+  margin: 0 auto;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.12);
+}
+
+.booking-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.7fr 0.7fr 1.2fr;
+  gap: 1.25rem;
+  align-items: end;
+  margin-top: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+.field label {
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  color: var(--muted);
+  margin-bottom: 0.55rem;
+  font-weight: 500;
+}
+.field input,
+.field select {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  padding: 0.75rem 0.6rem;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 0;
+  transition: border-color .25s ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-bottom-color: var(--ink);
+}
+.field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23999' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.4rem center;
+  padding-right: 1.5rem;
+}
+
+.booking-form .btn-primary {
+  height: 50px;
+  padding: 0 1.5rem;
+  white-space: nowrap;
+}
+
+/* ===== availability results ===== */
+.availability-results {
+  margin-top: 3rem;
+}
+.availability-results:empty { display: none; }
+
+.av-status {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--muted);
+  text-align: center;
+  padding: 2rem 0;
+}
+.av-error {
+  background: #fbf2ee;
+  border-left: 3px solid #c46a4c;
+  padding: 1.2rem 1.4rem;
+  color: #6b3a2a;
+  font-size: 0.95rem;
+}
+.av-error strong { display: block; margin-bottom: 0.3rem; }
+
+.av-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.av-card {
+  display: grid;
+  grid-template-columns: 280px 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  background: #fdfcf9;
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+.av-card:hover {
+  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+}
+.av-card .av-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background-size: cover;
+  background-position: center;
+  background-color: #e9e2d3;
+}
+.av-card .av-info h4 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.6rem;
+  margin: 0 0 0.4rem 0;
+}
+.av-card .av-info p {
+  color: var(--muted);
+  margin: 0 0 0.6rem 0;
+  font-size: 0.95rem;
+}
+.av-card .av-meta {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
+}
+.av-rate {
+  margin: 0.8rem 0 0 0 !important;
+  font-family: var(--serif);
+  color: var(--gold-dark);
+  font-size: 0.95rem;
+}
+.av-card .av-price {
+  text-align: right;
+  min-width: 180px;
+}
+.av-price .price-val {
+  font-family: var(--serif);
+  font-size: 2rem;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.av-price .price-unit {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+/* ===== distributor disabled banner ===== */
+.distributor-disabled {
+  background: #fef9ec;
+  border: 1px solid #e7d59c;
+  color: #6e5410;
+  padding: 1.2rem 1.4rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.distributor-disabled code {
+  background: rgba(0,0,0,0.06);
+  padding: 0.1rem 0.4rem;
+  font-size: 0.85rem;
+  border-radius: 2px;
+}
+
+/* ===== responsive ===== */
+@media (max-width: 960px) {
+  .booking-section { margin-top: -40px; }
+  .booking-card { padding: 2.5rem 1.5rem; }
+  .booking-form {
+    grid-template-columns: 1fr 1fr;
+  }
+  .booking-form .btn-primary { grid-column: 1 / -1; }
+  .av-card {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .av-card .av-price { text-align: left; }
+}

@@ -1,0 +1,13 @@
+# Videos — download via download_videos.py
+assets/videos/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editor noise
+.DS_Store
+.vscode/
+.idea/
