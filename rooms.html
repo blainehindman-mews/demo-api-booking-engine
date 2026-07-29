@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/booking.css" />
 </head>
 <body>
 
@@ -44,9 +45,10 @@
         Our rooms and suites are grounded in the textures of the Pacific
         Northwest &mdash; linen, weathered cedar, fog-soft wool.
       </p>
-
       <!-- Real Cascadian inventory + images from Mews /configuration/get.
-           Reserve links use the Distributor deep-link pattern:
+           "View availability" opens a per-category month calendar (see
+           js/availability-calendar.js), which hands off to the Distributor
+           deep-link pattern once dates are chosen:
              mewsRoom={CategoryId} + mewsRoute=rates  →  rate-selection step -->
 
       <div class="room-row">
@@ -58,7 +60,7 @@
           <div class="room-meta">
             <span>King Bed</span><span>Lake View</span><span>Room</span>
           </div>
-          <a href="https://app.mews-demo.com/distributor/602a440b-7c79-4b18-9b4e-b409011e18cc?mewsRoom=2a80e9e4-d71d-4be0-afe2-b420012a4b8c&mewsRoute=rates" target="_blank" rel="noopener" class="btn-secondary">Reserve</a>
+          <a href="#" target="_blank" rel="noopener" class="btn-secondary" data-mews-room="2a80e9e4-d71d-4be0-afe2-b420012a4b8c" data-room-name="Lake Side — King Room">View availability</a>
         </div>
       </div>
 
@@ -71,7 +73,7 @@
           <div class="room-meta">
             <span>King Bed</span><span>Sleeps 4</span><span>Suite</span>
           </div>
-          <a href="https://app.mews-demo.com/distributor/602a440b-7c79-4b18-9b4e-b409011e18cc?mewsRoom=c6b43b39-95b4-459c-b66d-b41f01145377&mewsRoute=rates" target="_blank" rel="noopener" class="btn-secondary">Reserve</a>
+          <a href="#" target="_blank" rel="noopener" class="btn-secondary" data-mews-room="c6b43b39-95b4-459c-b66d-b41f01145377" data-room-name="Lake Side — King Suite">View availability</a>
         </div>
       </div>
 
@@ -84,7 +86,7 @@
           <div class="room-meta">
             <span>King Bed</span><span>Lake &amp; Mountain View</span><span>Room</span>
           </div>
-          <a href="https://app.mews-demo.com/distributor/602a440b-7c79-4b18-9b4e-b409011e18cc?mewsRoom=d917eed3-ca11-4a50-a071-b409011e1a29&mewsRoute=rates" target="_blank" rel="noopener" class="btn-secondary">Reserve</a>
+          <a href="#" target="_blank" rel="noopener" class="btn-secondary" data-mews-room="d917eed3-ca11-4a50-a071-b409011e1a29" data-room-name="Mountain View — King Room">View availability</a>
         </div>
       </div>
 
@@ -97,7 +99,7 @@
           <div class="room-meta">
             <span>King Bed</span><span>Lake View</span><span>Room</span>
           </div>
-          <a href="https://app.mews-demo.com/distributor/602a440b-7c79-4b18-9b4e-b409011e18cc?mewsRoom=1c9fcec5-7a32-4102-809d-b409016cbaf1&mewsRoute=rates" target="_blank" rel="noopener" class="btn-secondary">Reserve</a>
+          <a href="#" target="_blank" rel="noopener" class="btn-secondary" data-mews-room="1c9fcec5-7a32-4102-809d-b409016cbaf1" data-room-name="Lake View — King Room">View availability</a>
         </div>
       </div>
 
@@ -110,7 +112,7 @@
           <div class="room-meta">
             <span>4 Beds</span><span>Sleeps 4</span><span>Dormitory</span>
           </div>
-          <a href="https://app.mews-demo.com/distributor/602a440b-7c79-4b18-9b4e-b409011e18cc?mewsRoom=135c4f4a-b04c-4f2f-80cd-b447014b438f&mewsRoute=rates" target="_blank" rel="noopener" class="btn-secondary">Reserve</a>
+          <a href="#" target="_blank" rel="noopener" class="btn-secondary" data-mews-room="135c4f4a-b04c-4f2f-80cd-b447014b438f" data-room-name="Whole Dorm Lodging">View availability</a>
         </div>
       </div>
 
@@ -123,11 +125,46 @@
           <div class="room-meta">
             <span>Single Bed</span><span>Shared Room</span><span>Lodging</span>
           </div>
-          <a href="https://app.mews-demo.com/distributor/602a440b-7c79-4b18-9b4e-b409011e18cc?mewsRoom=43fb6bc0-b99b-4cda-8d66-b447014b05fb&mewsRoute=rates" target="_blank" rel="noopener" class="btn-secondary">Reserve</a>
+          <a href="#" target="_blank" rel="noopener" class="btn-secondary" data-mews-room="43fb6bc0-b99b-4cda-8d66-b447014b05fb" data-room-name="Dorm Bed">View availability</a>
         </div>
       </div>
     </div>
   </section>
+
+  <div class="cal-modal" id="cal-modal" aria-hidden="true">
+    <div class="cal-modal-backdrop" data-cal-close></div>
+    <div class="cal-modal-panel" role="dialog" aria-modal="true" aria-labelledby="cal-modal-title">
+      <button type="button" class="cal-modal-close" data-cal-close aria-label="Close">&times;</button>
+      <p class="eyebrow">Availability</p>
+      <h3 id="cal-modal-title">Room</h3>
+
+      <div class="cal-month-nav">
+        <button type="button" class="cal-nav-btn" id="cal-prev" aria-label="Previous month">&larr;</button>
+        <span class="cal-month-label" id="cal-month-label">Month Year</span>
+        <button type="button" class="cal-nav-btn" id="cal-next" aria-label="Next month">&rarr;</button>
+      </div>
+
+      <div class="cal-grid-wrap">
+        <div class="cal-weekdays">
+          <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+        </div>
+        <div class="cal-grid" id="cal-grid"></div>
+        <div class="cal-loading" id="cal-loading" hidden>
+          <span class="cal-spinner"></span> Checking availability&hellip;
+        </div>
+      </div>
+
+      <div class="cal-footer">
+        <p class="cal-selection" id="cal-selection">Select your arrival date.</p>
+        <a href="#" target="_blank" rel="noopener" class="btn-primary is-disabled" id="cal-continue" aria-disabled="true">Continue to Mews</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/availability-calendar.js"></script>
+  <script src="js/main.js"></script>
 
   <footer class="site-footer">
     <div class="container footer-grid">

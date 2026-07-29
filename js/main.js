@@ -90,6 +90,10 @@
     });
   }
 
+  // Note: [data-mews-room] "View availability" links are wired up in
+  // js/availability-calendar.js, which opens a per-room month calendar
+  // instead of redirecting straight to Mews.
+
   // ---------- Smooth scroll for in-page anchors ----------
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener("click", (e) => {

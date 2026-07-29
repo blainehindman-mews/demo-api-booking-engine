@@ -309,6 +309,21 @@
     loadConfiguration();
   }
 
-  // ---------- Expose distributorUrl globally so other code can use it ----------
+  // ---------- Expose a small API so other modules (e.g. the per-room
+  // availability calendar) can reuse the Distributor plumbing without
+  // duplicating the request/auth boilerplate ----------
   window.cascadianDistributorUrl = distributorUrl;
+  window.cascadianBooking = {
+    distributor,
+    distributorUrl,
+    pickLang,
+    imageUrl,
+    config: {
+      CONFIG_ID,
+      ENTERPRISE_ID,
+      LANG,
+      CURRENCY,
+      hasConfig,
+    },
+  };
 })();
