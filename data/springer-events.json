@@ -1,0 +1,87 @@
+{
+  "_comment": [
+    "Springer Pavilion — event catalogue + seat inventory.",
+    "",
+    "Mews has no seat-map primitive: a Product has a price, not 50 numbered units.",
+    "So the SEAT GRID lives here (your ticketing layer) while Mews stays the source",
+    "of truth for the MONEY (the ticket Product) and the GUEST LINK (the reservation).",
+    "The seat labels are written onto the Mews order as `Notes` so the folio reads",
+    "'Springer Pavilion · Casablanca · Seats A3, A4'.",
+    "",
+    "`soldSeats` here is the seeded baseline shipped with the demo. Seats sold during",
+    "a session are layered on top in localStorage (see js/springer.js → inventory).",
+    "Nothing is written back to this file."
+  ],
+
+  "venue": {
+    "name": "Springer Pavilion",
+    "image": "assets/images/springer-pavilion.webp",
+    "timeZone": "America/Los_Angeles",
+    "currency": "USD"
+  },
+
+  "staffHolds": {
+    "_comment": [
+      "Seats withheld from sale — house/staff holds, comps, sightline kills.",
+      "Mews has no seat model, so this is the ticketing layer's own inventory,",
+      "exactly like soldSeats. Held seats are unavailable everywhere: greyed and",
+      "unclickable in the preview and in the picker, and excluded from the",
+      "'seats left' count. They are NOT recoverable by the 'Reset demo",
+      "inventory' button, which only clears what was sold in the browser.",
+      "",
+      "Keyed by Mews ProductId for events read live from Mews, and by local",
+      "event id for the offline fallback catalogue below."
+    ],
+
+    "ff471e6c-ddfb-44f5-8da7-b4b701201e97": ["A10", "B9", "C1", "C2", "C5", "C10"],
+    "spr-2027-08-14-casablanca":            ["A10", "B9", "C1", "C2", "C5", "C10"]
+  },
+
+  "seatMap": {
+    "_comment": "3 rows (A–C) × two 5-seat blocks with a centre aisle = 30 seats.",
+    "rows": ["A", "B", "C"],
+    "blocks": [
+      { "from": 1, "to": 5 },
+      { "from": 6, "to": 10 }
+    ]
+  },
+
+  "events": [
+    {
+      "id": "spr-2027-08-14-casablanca",
+      "title": "Casablanca Under the Stars",
+      "kind": "Open-Air Cinema",
+      "startsAtLocal": "2027-08-14T21:00",
+      "startsAtUtc": "2027-08-15T04:00:00Z",
+      "runtimeMinutes": 102,
+      "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80",
+      "description": "The 1942 print, projected onto the pavilion's stone back-wall as the light goes off Puget Sound. Blankets and a cedar-smoke fire pit provided; the bar stays open through the credits.",
+      "ticketPriceFallback": 45.0,
+      "soldSeats": ["A1", "A2", "B7", "C3", "C4"]
+    },
+    {
+      "id": "spr-2027-08-21-quartet",
+      "title": "The Cascades Chamber Quartet",
+      "kind": "Live Performance",
+      "startsAtLocal": "2027-08-21T19:30",
+      "startsAtUtc": "2027-08-22T02:30:00Z",
+      "runtimeMinutes": 90,
+      "image": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=1600&q=80",
+      "description": "An evening of Ravel and Debussy from the quartet in residence, played without amplification into the pavilion's open bowl.",
+      "ticketPriceFallback": 65.0,
+      "soldSeats": ["A5", "A6", "B1", "B2"]
+    },
+    {
+      "id": "spr-2027-09-04-rear-window",
+      "title": "Rear Window",
+      "kind": "Open-Air Cinema",
+      "startsAtLocal": "2027-09-04T20:30",
+      "startsAtUtc": "2027-09-05T03:30:00Z",
+      "runtimeMinutes": 112,
+      "image": "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1600&q=80",
+      "description": "Hitchcock's courtyard thriller, closing the summer season. Late-night espresso and cinnamon rolls from Mrs. Baker served at intermission.",
+      "ticketPriceFallback": 45.0,
+      "soldSeats": ["C6", "C7", "A9"]
+    }
+  ]
+}

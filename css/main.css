@@ -165,8 +165,12 @@ ul { list-style: none; padding: 0; margin: 0; }
   border-color: currentColor;
   font-size: 0.72rem;
 }
-.cta-book:hover { background: currentColor; color: var(--ink); }
-.site-header.scrolled .cta-book:hover { background: var(--ink); color: var(--bg); }
+/* Hover is the same gesture in both header states: ink fill, light label.
+   Don't reach for `currentColor` here — in any property other than `color`
+   it resolves against the `color` this very rule sets, so `background:
+   currentColor` + `color: var(--ink)` both land on ink and the label
+   disappears into the fill. Name the colours explicitly. */
+.cta-book:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 
 /* ===== hero ===== */
 .hero {

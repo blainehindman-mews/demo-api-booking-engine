@@ -1,3 +1,9 @@
+# Secrets — the Connector proxy reads these from the environment at runtime.
+# Nothing token-bearing belongs in this repo; this is belt-and-braces.
+.env
+.env.*
+!.env.example
+
 # Videos — download via download_videos.py
 assets/videos/
 

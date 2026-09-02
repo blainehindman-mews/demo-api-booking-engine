@@ -1,0 +1,97 @@
+{
+  "_comment": [
+    "STAND-IN for two Connector API responses. This file exists only because the",
+    "Connector API cannot be called from a browser — it needs ClientToken +",
+    "AccessToken, which must never ship to a client. See SPRINGER-PAVILION.md.",
+    "",
+    "The shapes below are deliberately byte-compatible with the real responses, so",
+    "swapping the mock for a server proxy is a URL change, not a rewrite:",
+    "",
+    "  Reservations[] ← POST /api/connector/v1/reservations/getAll/2023-06-06",
+    "                    { Numbers: ['30291'], States: ['Confirmed','Started'] }",
+    "  Customers[]    ← POST /api/connector/v1/customers/getAll",
+    "                    { CustomerIds: ['<AccountId from above>'] }",
+    "",
+    "AgeCategoryIds are the REAL ones from the Cascadian demo enterprise",
+    "(GET distributor /configuration/get → AgeCategories):",
+    "  b5eb32b0-ba33-46cd-b579-b409011e186b  Adults",
+    "  e8974775-321b-464d-8066-b409011e1a69  Seniors",
+    "  6f4ab16d-68a1-4ce5-a562-b409011e1a69  Teenagers",
+    "  319acf18-b8eb-4fd4-adb5-b409011e186b  Children",
+    "",
+    "Reservation Ids / AccountIds are fabricated — nothing here exists in Mews."
+  ],
+
+  "Reservations": [
+    {
+      "Id": "a1c0f5d2-6b41-4a77-9f10-000000000001",
+      "Number": "24817",
+      "AccountId": "c0ffee01-0000-4000-8000-000000000001",
+      "State": "Confirmed",
+      "StartUtc": "2027-08-12T22:00:00Z",
+      "EndUtc": "2027-08-16T19:00:00Z",
+      "AssignedResourceName": "412",
+      "PersonCounts": [
+        { "AgeCategoryId": "b5eb32b0-ba33-46cd-b579-b409011e186b", "Count": 2 }
+      ]
+    },
+    {
+      "Id": "a1c0f5d2-6b41-4a77-9f10-000000000002",
+      "Number": "30291",
+      "AccountId": "c0ffee01-0000-4000-8000-000000000002",
+      "State": "Started",
+      "StartUtc": "2027-08-14T22:00:00Z",
+      "EndUtc": "2027-08-15T19:00:00Z",
+      "AssignedResourceName": "708",
+      "PersonCounts": [
+        { "AgeCategoryId": "b5eb32b0-ba33-46cd-b579-b409011e186b", "Count": 2 },
+        { "AgeCategoryId": "6f4ab16d-68a1-4ce5-a562-b409011e1a69", "Count": 2 }
+      ]
+    },
+    {
+      "Id": "a1c0f5d2-6b41-4a77-9f10-000000000003",
+      "Number": "11563",
+      "AccountId": "c0ffee01-0000-4000-8000-000000000003",
+      "State": "Confirmed",
+      "StartUtc": "2027-08-13T22:00:00Z",
+      "EndUtc": "2027-08-15T19:00:00Z",
+      "AssignedResourceName": "215",
+      "PersonCounts": [
+        { "AgeCategoryId": "b5eb32b0-ba33-46cd-b579-b409011e186b", "Count": 1 }
+      ]
+    },
+    {
+      "Id": "a1c0f5d2-6b41-4a77-9f10-000000000004",
+      "Number": "44120",
+      "AccountId": "c0ffee01-0000-4000-8000-000000000004",
+      "State": "Confirmed",
+      "StartUtc": "2027-08-10T22:00:00Z",
+      "EndUtc": "2027-08-25T19:00:00Z",
+      "AssignedResourceName": "901",
+      "PersonCounts": [
+        { "AgeCategoryId": "b5eb32b0-ba33-46cd-b579-b409011e186b", "Count": 4 },
+        { "AgeCategoryId": "e8974775-321b-464d-8066-b409011e1a69", "Count": 2 }
+      ]
+    },
+    {
+      "Id": "a1c0f5d2-6b41-4a77-9f10-000000000005",
+      "Number": "50004",
+      "AccountId": "c0ffee01-0000-4000-8000-000000000005",
+      "State": "Confirmed",
+      "StartUtc": "2027-09-02T22:00:00Z",
+      "EndUtc": "2027-09-05T19:00:00Z",
+      "AssignedResourceName": "334",
+      "PersonCounts": [
+        { "AgeCategoryId": "b5eb32b0-ba33-46cd-b579-b409011e186b", "Count": 2 }
+      ]
+    }
+  ],
+
+  "Customers": [
+    { "Id": "c0ffee01-0000-4000-8000-000000000001", "FirstName": "Marguerite", "LastName": "Baker",   "Email": "m.baker@example.com" },
+    { "Id": "c0ffee01-0000-4000-8000-000000000002", "FirstName": "Blaine",     "LastName": "Hindman", "Email": "b.hindman@example.com" },
+    { "Id": "c0ffee01-0000-4000-8000-000000000003", "FirstName": "Ada",        "LastName": "Okonkwo", "Email": "a.okonkwo@example.com" },
+    { "Id": "c0ffee01-0000-4000-8000-000000000004", "FirstName": "Nils",       "LastName": "Larsen",  "Email": "n.larsen@example.com" },
+    { "Id": "c0ffee01-0000-4000-8000-000000000005", "FirstName": "Wei",        "LastName": "Chen",    "Email": "w.chen@example.com" }
+  ]
+}

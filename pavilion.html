@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Springer Pavilion — The Cascadian</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/booking.css" />
+  <link rel="stylesheet" href="css/springer.css" />
+</head>
+<body>
+
+  <header class="site-header scrolled" id="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">THE</span>
+        <span class="brand-name">CASCADIAN</span>
+      </a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="rooms.html">Rooms &amp; Suites</a></li>
+          <li><a href="dining.html">Dining</a></li>
+          <li><a href="experiences.html">Experiences</a></li>
+          <li><a href="pavilion.html">Pavilion</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="index.html#booking" class="cta-book">Reserve</a>
+    </div>
+  </header>
+
+  <!-- ===== venue hero ===== -->
+  <section class="spr-hero" style="background-image:url('assets/images/springer-pavilion.webp')">
+    <div class="container">
+      <p class="eyebrow">On the East Lawn</p>
+      <h1>Springer<br/>Pavilion</h1>
+      <p>
+        Fifty seats cut into the hillside behind the hotel, open to the water and
+        the weather. Cinema under the stars, chamber music without amplification,
+        and a season that runs from the first warm evening to the last.
+        Seating is for in-house guests, and it goes to your room.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== events ===== -->
+  <section>
+    <div class="container">
+      <p class="eyebrow center">Summer Season 2027</p>
+      <h2 class="section-title center">What's On</h2>
+      <p class="section-sub center">
+        Gates open an hour before curtain. Blankets, cedar-smoke fire pits, and
+        the bar open through the credits.
+      </p>
+
+      <div class="spr-events" id="spr-events">
+        <p class="av-status">Loading the season&hellip;</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== booking modal ===== -->
+  <div class="spr-modal" id="spr-modal" aria-hidden="true">
+    <div class="spr-modal-backdrop" data-spr-close></div>
+    <div class="spr-modal-panel" role="dialog" aria-modal="true" aria-labelledby="spr-modal-title">
+      <button type="button" class="spr-modal-close" data-spr-close aria-label="Close">&times;</button>
+
+      <div class="spr-modal-head">
+        <p class="eyebrow">Springer Pavilion</p>
+        <h3 id="spr-modal-title">Performance</h3>
+        <p class="spr-modal-when" id="spr-modal-when"></p>
+      </div>
+
+      <!-- step 0 — read-only seat preview (no lookup required) -->
+      <div class="spr-step" data-step="preview" hidden>
+        <h4>Seats still open</h4>
+        <p class="spr-lede">
+          A look at the house as it stands. To claim any of these we'll need to find
+          your booking first &mdash; seats are for guests staying with us that night.
+        </p>
+
+        <div class="spr-stage">
+          <div class="spr-stage-bar">Stage</div>
+        </div>
+
+        <div class="spr-seatgrid spr-seatgrid-preview" id="spr-preview-grid"></div>
+
+        <div class="spr-legend">
+          <span><i class="spr-swatch open"></i> Available</span>
+          <span><i class="spr-swatch sold"></i> Taken</span>
+          <span><i class="spr-swatch held"></i> Staff held</span>
+        </div>
+
+        <div class="spr-stepfoot">
+          <span class="spr-count" id="spr-preview-count"></span>
+          <button type="button" class="btn-primary" id="spr-preview-claim">Claim Seats</button>
+        </div>
+      </div>
+
+      <!-- step 1 — verify the reservation -->
+      <div class="spr-step" data-step="verify">
+        <h4>First, find your booking</h4>
+        <p class="spr-lede">
+          Seats are held for guests staying with us that night. Enter the surname on
+          the booking and your confirmation number.
+        </p>
+        <p class="spr-error" id="spr-verify-error" hidden></p>
+        <form id="spr-verify-form" novalidate>
+          <div class="spr-fields">
+            <div class="spr-field">
+              <label for="spr-lastname">Surname</label>
+              <input type="text" id="spr-lastname" autocomplete="family-name" required />
+            </div>
+            <div class="spr-field">
+              <label for="spr-confirmation">Confirmation number</label>
+              <input type="text" id="spr-confirmation" inputmode="numeric" required />
+            </div>
+          </div>
+          <button type="submit" class="btn-primary" id="spr-verify-btn">Find My Booking</button>
+        </form>
+      </div>
+
+      <!-- step 2 — seat map -->
+      <div class="spr-step" data-step="seats" hidden>
+        <p class="spr-welcome" id="spr-seat-welcome"></p>
+
+        <div class="spr-stage">
+          <div class="spr-stage-bar">Stage</div>
+        </div>
+
+        <div class="spr-seatgrid" id="spr-seatgrid"></div>
+
+        <div class="spr-legend">
+          <span><i class="spr-swatch open"></i> Available</span>
+          <span><i class="spr-swatch selected"></i> Yours</span>
+          <span><i class="spr-swatch sold"></i> Taken</span>
+          <span><i class="spr-swatch held"></i> Staff held</span>
+        </div>
+
+        <p class="spr-seat-hint" id="spr-seat-hint"></p>
+
+        <div class="spr-stepfoot">
+          <span class="spr-count" id="spr-seat-count"></span>
+          <button type="button" class="btn-primary" id="spr-to-review" disabled>Review &amp; Charge</button>
+        </div>
+      </div>
+
+      <!-- step 3 — review, add-ons, charge -->
+      <div class="spr-step" data-step="review" hidden>
+        <h4>Confirm your seats</h4>
+        <div id="spr-review-summary"></div>
+
+        <p class="spr-subhead">Add to the evening</p>
+        <p>
+          Live from this property's Mews product catalogue &mdash; anything here posts
+          to the same folio line. No quantity limit on these.
+        </p>
+        <div class="spr-addons" id="spr-addons"></div>
+
+        <div class="spr-totals" id="spr-totals"></div>
+
+        <p class="spr-error" id="spr-charge-error" hidden></p>
+
+        <div class="spr-stepfoot">
+          <button type="button" class="btn-secondary" id="spr-back-to-seats">Back to seats</button>
+          <button type="button" class="btn-primary" id="spr-charge">Charge to My Room</button>
+        </div>
+      </div>
+
+      <!-- step 4 — confirmation -->
+      <div class="spr-step" data-step="done" hidden>
+        <h4>You're in.</h4>
+        <div id="spr-done-body"></div>
+        <div class="spr-stepfoot">
+          <span></span>
+          <button type="button" class="btn-primary" id="spr-done-close">Done</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="brand-mark dark">THE</p>
+        <p class="brand-name dark">CASCADIAN</p>
+        <p class="footer-tag">A Pacific Northwest Retreat</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <p>1 Cascadian Way<br/>Seattle, Washington 98101</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>reservations@cascadian.example<br/>+1 (206) 555&ndash;0100</p>
+      </div>
+      <div>
+        <h4>Stay in Touch</h4>
+        <form class="newsletter" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed';">
+          <input type="email" placeholder="Your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-base">
+      <p>&copy; The Cascadian. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/springer.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
